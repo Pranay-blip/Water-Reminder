@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+      background-color: rgb(219, 234, 254);
+    }
+    h4 {
+      margin-top: 0;
+      color: rgb(59, 130, 246);
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .input-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .input-group {
+      margin: 0 5px;
+    }
+    input[type="number"] {
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    #setReminder {
+      background-color: #4285F4;
+      color: white;
+    }
+    #setReminder:hover {
+      background-color: #357ae8;
+    }
+    #closeReminder {
+      background-color: #e0e0e0;
+      color: #555;
+    }
+    #closeReminder:hover {
+      background-color: #d5d5d5;
+    }
+    /* Status text for current reminder */
+    .status-text {
+      font-size: 13px;
+      color: #333;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      min-height: 18px;
+      font-weight: 500;
+    }
+    /* Confirmation message (green) */
+    #confirmationMessage {
+      color: #006400;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h4>Water Reminder</h4>
+
+  <!-- Status text for current reminder -->
+  <p id="currentReminder" class="status-text">Loading...</p>
+
+  <!-- Status text for goal -->
+  <p id="currentGoal" class="status-text">Goal: Not set.</p>
+
+  <!-- Goal Input -->
+  <div class="input-row">
+    <label for="goal_input">Today's Goal:</label>
+    <div class="input-group">
+      <input type="number" id="goal_input" min="1" value="8">
+      <label for="goal_input">glasses</label>
+    </div>
+  </div>
+
+  <!-- Time Input -->
+  <div class="input-row">
+    <label>Remind every:</label>
+    <div class="input-group">
+      <input type="number" id="interval_min" min="0" value="0">
+      <label for="interval_min">mins</label>
+    </div>
+    <div class="input-group">
+      <input type="number" id="interval_sec" min="0" max="59" value="5">
+      <label for="interval_sec">secs</label>
+    </div>
+  </div>
+
+  <p id="confirmationMessage" class="hidden"></p>
+
+  <button id="setReminder">Set Reminder</button>
+  <button id="closeReminder">Close Reminder</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
